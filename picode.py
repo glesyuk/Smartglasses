@@ -57,7 +57,7 @@ def say(statment):
 def start_up():
   hour1 = int(datetime.datetime.now().hour)
   if hour1 >= 0 and hour1 < 5:
-      say('go_to_sleep_you_retard')
+      say('go_to_sleep')
   if hour1 >= 5 and hour1 < 12:
       say('good_morning')
   elif hour1 >= 12 and hour1 < 20:
@@ -209,7 +209,6 @@ def newsapi():
     #jprint(articles)
 
 def news():
-  #this is called the epitome of laziness, THE VALUE WILL NEVER CHANGE HAHAHAHAHAHHAHA
   content = newsapi()
   content1 = content[0]
   content2 = content[1]
@@ -307,7 +306,7 @@ def timefunction():
         timecount = timecount + 1
 
 #device info
-serial = i2c(port=1, address=0x3C)#Put in the address of your display
+serial = i2c(port=1, address=0x3C)
 device = ssd1306(serial, rotate=1)
 
 #startup
@@ -336,10 +335,6 @@ while True:
         time.sleep(5)
       
       else:
-        #del val
-        #say('what would you like to search')
-        #time.sleep(1)
-        #listen()
         query = str(val)
         result = wikipedia.summary(val, sentences = 1)
         for i in bad_chars:
